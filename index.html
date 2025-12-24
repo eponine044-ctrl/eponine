@@ -1,0 +1,1024 @@
+ 
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <title>Empty Mirror – Chapitre 1 · Amitiés virtuelles</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="Chapitre 1 immersif d’Empty Mirror : vidéo de Brandy, premier message de Roméo, témoignages et frise des événements." />
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;700&family=Space+Grotesk:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #02030a;
+      --bg-panel: rgba(8, 10, 25, 0.96);
+      --bg-soft: rgba(10, 12, 30, 0.9);
+      --accent: #ff365f;
+      --accent-soft: #ff7da3;
+      --accent-alt: #3fe0ff;
+      --text-main: #f7f7ff;
+      --text-muted: #9a9ab8;
+      --border-soft: rgba(255,255,255,0.12);
+      --shadow-soft: 0 26px 60px rgba(0,0,0,0.85);
+      --radius-lg: 22px;
+      --radius-md: 16px;
+      --radius-pill: 999px;
+      --blur-strong: blur(26px);
+      --transition-fast: 180ms cubic-bezier(.2,.8,.2,1);
+      --transition-med: 260ms cubic-bezier(.2,.8,.2,1);
+    }
+
+    *{box-sizing:border-box;margin:0;padding:0}
+    html,body{height:100%}
+    body{
+      font-family:"DM Sans",system-ui,-apple-system,BlinkMacSystemFont;
+      background:
+        radial-gradient(circle at 0 0,#1b1035 0,transparent 55%),
+        radial-gradient(circle at 100% 100%,#240c31 0,transparent 55%),
+        radial-gradient(circle at 0 100%,#041827 0,transparent 55%),
+        #02030a;
+      color:var(--text-main);
+      -webkit-font-smoothing:antialiased;
+      scroll-behavior:smooth;
+    }
+    body::before{
+      content:"";
+      position:fixed;
+      inset:-120px;
+      pointer-events:none;
+      background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='noStitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.15'/%3E%3C/svg%3E");
+      mix-blend-mode:soft-light;
+      z-index:-1;
+    }
+
+    main{min-height:100vh;display:flex;flex-direction:column}
+    a{text-decoration:none;color:inherit}
+
+    .page{
+      max-width:1180px;
+      margin:0 auto;
+      padding:1.6rem clamp(1.1rem,3vw,2.4rem) 3.4rem;
+    }
+
+    /* HEADER */
+
+    header{
+      position:sticky;
+      top:0;
+      z-index:20;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding:.8rem 1.2rem;
+      margin-bottom:1.7rem;
+      border-radius:0 0 var(--radius-lg) var(--radius-lg);
+      backdrop-filter:blur(20px);
+      background:
+        radial-gradient(circle at 0 0,rgba(255,54,95,.18),transparent 60%),
+        radial-gradient(circle at 100% 0,rgba(63,224,255,.16),transparent 60%),
+        rgba(3,3,12,.9);
+      border-bottom:1px solid rgba(255,255,255,.08);
+      box-shadow:0 18px 40px rgba(0,0,0,.8);
+    }
+
+    .brand{display:flex;align-items:center;gap:.8rem}
+    .brand-mark{
+      width:34px;height:34px;border-radius:11px;
+      background:conic-gradient(from 210deg,#ff365f,#3fe0ff,#f9ffb0,#ff365f);
+      box-shadow:0 0 22px rgba(255,54,95,.7);
+      position:relative;overflow:hidden;
+    }
+    .brand-mark::before{
+      content:"";position:absolute;inset:3px;border-radius:8px;
+      background:
+        radial-gradient(circle at 30% 0,rgba(255,255,255,.4),transparent 55%),
+        #02030a;
+    }
+    .brand-text{display:flex;flex-direction:column;gap:.08rem}
+    .brand-title{
+      font-family:"Space Grotesk";
+      font-weight:700;
+      letter-spacing:.16em;
+      text-transform:uppercase;
+      font-size:.8rem;
+    }
+    .brand-sub{
+      font-size:.7rem;
+      text-transform:uppercase;
+      letter-spacing:.18em;
+      color:var(--text-muted);
+    }
+
+    .header-actions{display:flex;align-items:center;gap:.6rem;font-size:.7rem}
+    .pill{
+      border-radius:var(--radius-pill);
+      padding:.35rem .85rem;
+      border:1px solid rgba(255,255,255,.18);
+      background:
+        radial-gradient(circle at 0 0,rgba(255,54,95,.22),transparent 65%),
+        radial-gradient(circle at 100% 100%,rgba(63,224,255,.16),transparent 65%),
+        rgba(6,6,20,.96);
+      display:inline-flex;
+      align-items:center;
+      gap:.45rem;
+      color:var(--text-muted);
+    }
+    .pill-dot{
+      width:7px;height:7px;border-radius:999px;
+      background:radial-gradient(circle,#4cff9e 0,#088b37 65%,transparent 85%);
+      box-shadow:0 0 10px rgba(76,255,158,.85);
+    }
+
+    .btn-ghost{
+      border-radius:var(--radius-pill);
+      padding:.32rem .9rem;
+      border:1px solid rgba(255,255,255,.18);
+      background:rgba(3,3,14,.96);
+      color:var(--text-main);
+      display:inline-flex;
+      align-items:center;
+      gap:.4rem;
+      text-transform:uppercase;
+      letter-spacing:.14em;
+      font-size:.7rem;
+      cursor:pointer;
+      transition:background var(--transition-fast),box-shadow var(--transition-fast),transform var(--transition-fast),border-color var(--transition-fast);
+    }
+    .btn-ghost:hover{
+      background:rgba(255,54,95,.18);
+      border-color:rgba(255,54,95,.65);
+      box-shadow:0 0 18px rgba(255,54,95,.7);
+      transform:translateY(-1px);
+    }
+
+    /* INTRO VIDEO SECTION */
+
+    .intro{
+      margin-bottom:2rem;
+      display:grid;
+      grid-template-columns:minmax(0,1.4fr) minmax(0,1.1fr);
+      gap:clamp(1.4rem,4vw,2.4rem);
+      align-items:center;
+    }
+    .intro-video{
+      border-radius:var(--radius-lg);
+      overflow:hidden;
+      box-shadow:var(--shadow-soft);
+      border:1px solid var(--border-soft);
+      background:radial-gradient(circle at 0 0,rgba(255,54,95,.25),transparent 60%),
+                 radial-gradient(circle at 100% 100%,rgba(63,224,255,.25),transparent 60%),
+                 #050612;
+    }
+    .intro-video video{
+      width:100%;
+      height:auto;
+      display:block;
+    }
+    .intro-caption{
+      padding:1rem 1.2rem 1.1rem;
+      font-size:.9rem;
+      color:var(--text-muted);
+    }
+    .intro-caption h2{
+      font-family:"Space Grotesk";
+      font-size:1.1rem;
+      letter-spacing:.16em;
+      text-transform:uppercase;
+      margin-bottom:.5rem;
+      color:var(--text-main);
+    }
+    .intro-caption p + p{
+      margin-top:.6rem;
+    }
+
+    /* HERO (TEXTE + SHADOWLINK) */
+
+    .hero{
+      display:grid;
+      grid-template-columns:minmax(0,1.15fr) minmax(0,1.1fr);
+      gap:clamp(1.4rem,4vw,2.3rem);
+      margin-top:1rem;
+      margin-bottom:2.2rem;
+      align-items:stretch;
+    }
+
+    .hero-text h1{
+      font-family:"Space Grotesk";
+      font-weight:700;
+      font-size:clamp(2.1rem,4vw,2.8rem);
+      letter-spacing:.12em;
+      text-transform:uppercase;
+      line-height:1.05;
+      margin-bottom:.7rem;
+    }
+    .hero-kicker{
+      font-size:.78rem;
+      letter-spacing:.22em;
+      text-transform:uppercase;
+      color:var(--accent-soft);
+      margin-bottom:.35rem;
+    }
+    .hero-meta{
+      display:flex;flex-wrap:wrap;
+      gap:.35rem 1rem;
+      font-size:.76rem;
+      color:var(--text-muted);
+      margin-bottom:.9rem;
+    }
+    .hero-meta span{display:inline-flex;align-items:center;gap:.35rem}
+    .hero-meta span::before{
+      content:"◆";font-size:.55rem;color:rgba(245,245,255,.55);
+    }
+    .hero-text p{
+      font-size:.93rem;
+      line-height:1.7;
+      color:var(--text-muted);
+      max-width:34rem;
+    }
+
+    .hero-actions{
+      margin-top:1.1rem;
+      display:flex;
+      flex-wrap:wrap;
+      gap:.7rem;
+      align-items:center;
+    }
+    .btn-primary{
+      border:none;
+      border-radius:var(--radius-pill);
+      padding:.55rem 1.25rem;
+      background:linear-gradient(120deg,#ff365f,#f9ffb0,#3fe0ff);
+      background-size:200% 200%;
+      color:#050309;
+      font-weight:600;
+      font-size:.7rem;
+      text-transform:uppercase;
+      letter-spacing:.16em;
+      display:inline-flex;
+      align-items:center;
+      gap:.55rem;
+      cursor:pointer;
+      box-shadow:0 16px 46px rgba(0,0,0,.9);
+      transition:transform var(--transition-med),box-shadow var(--transition-med),background-position 420ms ease-out;
+    }
+    .btn-primary:hover{
+      transform:translateY(-1.5px) scale(1.01);
+      background-position:80% 0;
+      box-shadow:0 22px 60px rgba(0,0,0,1);
+    }
+    .btn-primary-icon{
+      width:16px;height:16px;border-radius:999px;
+      border:1px solid rgba(5,5,10,.7);
+      display:inline-flex;align-items:center;justify-content:center;
+      font-size:.8rem;background:rgba(255,255,255,.85);
+    }
+    .hero-note{
+      font-size:.75rem;color:var(--text-muted);max-width:18rem;
+    }
+
+    .highlight-shadowlink{color:var(--accent-alt);}
+    .highlight-danger{color:var(--accent);}
+
+    /* ShadowLink PANEL (MESSAGE ROMÉO) */
+
+    .shadowlink-panel{
+      position:relative;
+      border-radius:var(--radius-lg);
+      padding:1rem;
+      background:
+        radial-gradient(circle at 0 0,rgba(255,54,95,.35),transparent 60%),
+        radial-gradient(circle at 120% 120%,rgba(63,224,255,.38),transparent 60%),
+        radial-gradient(circle at 0 120%,rgba(255,255,255,.06),transparent 60%),
+        rgba(5,6,18,.96);
+      backdrop-filter:var(--blur-strong);
+      border:1px solid var(--border-soft);
+      box-shadow:var(--shadow-soft);
+      overflow:hidden;
+    }
+    .shadowlink-header{
+      display:flex;align-items:center;justify-content:space-between;
+      margin-bottom:.7rem;
+      font-size:.78rem;color:var(--text-muted);
+    }
+    .shadowlink-logo{
+      display:inline-flex;align-items:center;gap:.45rem;
+      font-family:"Space Grotesk";
+      letter-spacing:.18em;
+      text-transform:uppercase;
+      font-size:.7rem;
+    }
+    .shadowlink-logo-mark{
+      width:18px;height:18px;border-radius:40%;
+      background:conic-gradient(from 210deg,rgba(255,54,95,.95),rgba(63,224,255,.95),rgba(249,255,176,.9),rgba(255,54,95,.95));
+      box-shadow:0 0 16px rgba(249,255,176,.8);
+      position:relative;overflow:hidden;
+    }
+    .shadowlink-logo-mark::before{
+      content:"";position:absolute;inset:4px;border-radius:inherit;
+      background:radial-gradient(circle at 20% 0,rgba(255,255,255,.55),transparent 55%),#02030a;
+    }
+    .shadowlink-status{display:inline-flex;align-items:center;gap:.4rem;font-size:.7rem}
+    .shadowlink-status-dot{
+      width:8px;height:8px;border-radius:999px;
+      background:radial-gradient(circle,#3fe0ff 0,#0b7fa7 60%,transparent 90%);
+      box-shadow:0 0 14px rgba(63,224,255,.95);
+    }
+
+    .shadowlink-title{
+      font-size:.86rem;
+      color:#ff495f;
+      font-weight:600;
+      margin-bottom:.2rem;
+    }
+    .shadowlink-sub{
+      font-size:.78rem;
+      color:var(--text-muted);
+      margin-bottom:.8rem;
+    }
+
+    .shadowlink-feed{
+      border-radius:var(--radius-md);
+      background:rgba(3,4,16,.96);
+      border:1px solid var(--border-soft);
+      padding:1rem .9rem .8rem;
+      position:relative;
+      overflow:hidden;
+    }
+
+    .rom-message-header{
+      display:flex;
+      align-items:center;
+      gap:.7rem;
+      margin-bottom:.9rem;
+    }
+    .rom-avatar{
+      width:46px;
+      height:46px;
+      border-radius:999px;
+      background:radial-gradient(circle at 20% 0,rgba(255,255,255,.3),transparent 55%),
+                 linear-gradient(135deg,#1c2432,#313746);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size:1.4rem;
+      color:#9a9ab8;
+    }
+    .rom-meta{
+      display:flex;
+      flex-direction:column;
+      gap:.1rem;
+      font-size:.85rem;
+    }
+    .rom-name{font-weight:600;}
+    .rom-status{font-size:.78rem;color:#2cf38a;}
+    .rom-time{
+      margin-left:auto;
+      font-size:.72rem;
+      color:var(--text-muted);
+    }
+
+    .rom-bubble{
+      border-radius:18px;
+      padding:1rem 1rem .9rem;
+      background:#1b2432;
+      color:#e5e7ff;
+      font-size:.86rem;
+      line-height:1.6;
+      border:1px solid rgba(255,255,255,.08);
+      margin-bottom:.6rem;
+    }
+    .rom-footer{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      font-size:.74rem;
+      color:var(--text-muted);
+    }
+    .rom-location{
+      display:flex;
+      gap:.6rem;
+      flex-wrap:wrap;
+    }
+    .rom-pill{
+      border-radius:var(--radius-pill);
+      padding:.18rem .55rem;
+      border:1px solid rgba(255,255,255,.14);
+      font-size:.7rem;
+      color:rgba(224,224,244,.9);
+      background:rgba(4,5,16,.95);
+    }
+
+    /* LAYOUT MAIN */
+
+    .layout-main{
+      display:grid;
+      grid-template-columns:minmax(0,1.6fr) minmax(0,1.05fr);
+      gap:clamp(1.6rem,4vw,2.6rem);
+      align-items:flex-start;
+    }
+
+    .chapter-scroll{
+      border-radius:var(--radius-lg);
+      background:var(--bg-panel);
+      border:1px solid var(--border-soft);
+      box-shadow:var(--shadow-soft);
+      padding:1.25rem 1.4rem 1.4rem;
+      max-height:min(78vh,920px);
+      display:flex;flex-direction:column;
+      overflow:hidden;
+      position:relative;
+    }
+    .chapter-scroll-header{
+      display:flex;align-items:baseline;justify-content:space-between;
+      margin-bottom:.8rem;
+    }
+    .chapter-label{
+      font-size:.78rem;text-transform:uppercase;letter-spacing:.2em;
+      color:var(--accent-soft);
+    }
+    .chapter-title{
+      font-family:"Space Grotesk";font-size:1.25rem;
+      text-transform:uppercase;letter-spacing:.12em;
+    }
+    .chapter-progress-bar{
+      margin-top:.7rem;height:4px;border-radius:999px;
+      background:rgba(255,255,255,.16);overflow:hidden;
+    }
+    .chapter-progress{
+      width:0;height:100%;
+      background:linear-gradient(90deg,#ff365f,#f9ffb0,#3fe0ff);
+      transition:width 180ms linear;
+    }
+
+    .chapter-body{
+      margin-top:.85rem;
+      padding-right:.55rem;
+      overflow-y:auto;
+      scrollbar-width:thin;
+      scrollbar-color:rgba(255,255,255,.25) transparent;
+      font-size:.93rem;
+      line-height:1.7;
+      color:var(--text-muted);
+    }
+    .chapter-body::-webkit-scrollbar{width:6px;}
+    .chapter-body::-webkit-scrollbar-track{background:transparent;}
+    .chapter-body::-webkit-scrollbar-thumb{
+      background:rgba(255,255,255,.25);border-radius:999px;
+    }
+
+    .chapter-body h2{
+      font-family:"Space Grotesk";
+      font-size:.94rem;
+      text-transform:uppercase;
+      letter-spacing:.22em;
+      color:var(--accent-soft);
+      margin:1.6rem 0 .45rem;
+    }
+    .chapter-body h2:first-of-type{margin-top:0;}
+    .chapter-body p{margin-bottom:.85rem;}
+    .dialogue{font-style:italic;color:#dedefa;}
+    .time-stamp{
+      font-size:.8rem;text-transform:uppercase;
+      letter-spacing:.18em;color:rgba(154,154,184,.95);
+      margin-bottom:.45rem;
+    }
+
+    /* SIDE COLUMN */
+
+    .side-column{display:flex;flex-direction:column;gap:1rem;}
+    .card{
+      border-radius:var(--radius-lg);
+      padding:1rem;
+      background:var(--bg-soft);
+      border:1px solid var(--border-soft);
+      box-shadow:var(--shadow-soft);
+      position:relative;overflow:hidden;
+    }
+    .card h3{
+      font-family:"Space Grotesk";
+      font-size:.9rem;
+      text-transform:uppercase;
+      letter-spacing:.18em;
+      margin-bottom:.55rem;
+    }
+
+    .video-grid{
+      display:flex;
+      flex-direction:column;
+      gap:1rem;
+      margin-top:.35rem;
+    }
+    .video-card{
+      border-radius:var(--radius-md);
+      padding:.7rem .8rem;
+      border:1px solid var(--border-soft);
+      background:rgba(5,6,20,.96);
+      box-shadow:0 0 26px rgba(255,54,95,.7);
+      display:grid;
+      grid-template-columns:auto 1fr;
+      column-gap:.7rem;
+      align-items:start;
+    }
+    .video-thumb{
+      width:42px;
+      height:42px;
+      border-radius:14px;
+      background:radial-gradient(circle at 30% 0,rgba(255,255,255,.45),transparent 55%),linear-gradient(135deg,#ff365f,#3fe0ff);
+      box-shadow:0 0 18px rgba(255,54,95,.7);
+      position:relative;
+    }
+    .video-meta{
+      display:flex;
+      flex-direction:column;
+      gap:.1rem;
+      font-size:.8rem;
+      color:#f7f7ff;
+    }
+    .video-title{font-weight:600;}
+    .video-desc{font-size:.75rem;color:#9a9ab8;}
+    .video-player{
+      grid-column:1 / -1;
+      margin-top:.5rem;
+      border-radius:14px;
+      overflow:hidden;
+      box-shadow:0 0 20px rgba(255,54,95,.8);
+      background:#000;
+    }
+    .video-player video{
+      width:100%;
+      height:auto;
+      display:block;
+      background:#000;
+    }
+
+    .timeline{
+      margin-top:.35rem;
+      border-left:1px dashed rgba(154,154,184,.55);
+      padding-left:.85rem;
+      display:flex;flex-direction:column;gap:.7rem;
+    }
+    .timeline-item{
+      position:relative;
+      padding-left:.4rem;
+      font-size:.8rem;
+      color:var(--text-muted);
+    }
+    .timeline-dot{
+      position:absolute;
+      left:-1.05rem;top:.32rem;
+      width:9px;height:9px;border-radius:999px;
+      background:#02030a;
+      border:1px solid rgba(249,255,176,.95);
+      box-shadow:0 0 12px rgba(249,255,176,.95);
+    }
+    .timeline-item strong{
+      display:block;margin-bottom:.08rem;color:var(--text-main);
+    }
+
+    .tag-row{display:flex;flex-wrap:wrap;gap:.35rem;margin-top:.45rem;}
+    .tag{
+      font-size:.68rem;text-transform:uppercase;letter-spacing:.16em;
+      border-radius:var(--radius-pill);
+      padding:.18rem .6rem;
+      border:1px solid rgba(255,255,255,.2);
+      background:rgba(6,7,22,.9);
+      color:rgba(214,214,238,.92);
+    }
+    .tag-accent{
+      border-color:rgba(255,54,95,.75);
+      background:rgba(255,54,95,.12);
+      color:var(--accent-soft);
+    }
+
+    .link-shadow{
+      display:inline-flex;align-items:center;gap:.35rem;
+      margin-top:.55rem;
+      font-size:.78rem;
+      text-transform:uppercase;letter-spacing:.16em;
+      color:var(--accent-alt);
+    }
+    .link-shadow span{font-size:.9rem;}
+    .link-shadow:hover{text-decoration:underline;}
+
+    /* FOOTER */
+
+    footer{
+      margin-top:2.4rem;
+      padding-top:1.4rem;
+      border-top:1px dashed rgba(154,154,184,.5);
+      font-size:.75rem;
+      color:var(--text-muted);
+      display:flex;flex-wrap:wrap;gap:.6rem;
+      align-items:center;justify-content:space-between;
+    }
+    .footer-pill{
+      border-radius:var(--radius-pill);
+      border:1px solid rgba(255,255,255,.18);
+      padding:.22rem .7rem;
+      font-size:.7rem;
+      text-transform:uppercase;
+      letter-spacing:.16em;
+      background:rgba(5,6,20,.96);
+      color:rgba(214,214,238,.9);
+    }
+
+    /* REVEAL ANIM */
+
+    .reveal{
+      opacity:0;
+      transform:translateY(18px);
+      transition:opacity 520ms ease-out,transform 520ms ease-out;
+    }
+    .reveal.visible{
+      opacity:1;
+      transform:translateY(0);
+    }
+
+    /* MEDIA QUERIES */
+
+    @media (max-width:1000px){
+      .intro{grid-template-columns:minmax(0,1fr);}
+    }
+    @media (max-width:900px){
+      .hero{grid-template-columns:minmax(0,1fr);}
+      header{border-radius:0;}
+    }
+    @media (max-width:780px){
+      .layout-main{grid-template-columns:minmax(0,1fr);}
+      .chapter-scroll{max-height:none;}
+    }
+    @media (max-width:600px){
+      .page{padding-inline:1rem;}
+      header{flex-direction:column;align-items:flex-start;gap:.6rem;}
+      .hero-actions{flex-direction:column;align-items:flex-start;}
+    }
+  </style>
+</head>
+<body>
+<main>
+  <div class="page">
+
+    <!-- HEADER -->
+    <header class="reveal">
+      <div class="brand">
+        <div class="brand-mark"></div>
+        <div class="brand-text">
+          <div class="brand-title">Empty Mirror</div>
+          <div class="brand-sub">Roman transnumérique – Tome 1</div>
+        </div>
+      </div>
+      <div class="header-actions">
+        <div class="pill">
+          <span class="pill-dot"></span>
+          Chapitre 1 · Mode immersif
+        </div>
+        <button class="btn-ghost" id="toggle-glow">
+          <span>Shadow glow</span><span style="font-size:0.9rem;">◎</span>
+        </button>
+      </div>
+    </header>
+
+    <!-- INTRO : VIDÉO BRANDY EN PLEIN ÉCRAN -->
+    <section class="intro reveal" style="transition-delay:60ms;">
+      <div class="intro-video">
+        <!-- remplace les noms par ceux de ton dossier /assep -->
+        <video controls preload="metadata" poster="/assep/brandy-euphorie-poster.jpg">
+          <source src="/assep/brandy-euphorie.mp4" type="video/mp4" />
+          Votre navigateur ne supporte pas la vidéo.
+        </video>
+      </div>
+      <div class="intro-caption">
+        <h2>« C’est ma chance, les filles ! »</h2>
+        <p>
+          Brandy vient d’enregistrer ce message vidéo pour Mia, Rachel et Samantha.
+          Elle vient de recevoir un long message d’un mystérieux réalisateur qui dit
+          préparer son premier long métrage.
+        </p>
+        <p>
+          Pour elle, c’est un signe&nbsp;: enfin quelqu’un voit son talent. Elle se
+          filme, euphorique, persuadée que sa vie est sur le point de changer. Elle
+          ne sait pas encore que ce message sera le début de sa disparition.
+        </p>
+      </div>
+    </section>
+
+    <!-- HERO : CONTEXTE + MOCKUP MESSAGE ROMÉO -->
+    <section class="hero">
+      <div class="hero-text reveal" style="transition-delay:120ms;">
+        <div class="hero-kicker">Chapitre 1</div>
+        <h1>Amitiés virtuelles</h1>
+        <div class="hero-meta">
+          <span>Quatre amies · Quatre fuseaux horaires</span>
+          <span>Facebook &amp; <span class="highlight-shadowlink">ShadowLink</span></span>
+          <span>Le premier message de Roméo</span>
+        </div>
+        <p>
+          Après cette vidéo, tout s’accélère. Un certain <span class="highlight-danger">Roméo</span>,
+          réalisateur indépendant autoproclamé, écrit à Brandy. Il dit avoir regardé ses
+          vidéos « pendant des heures », être « envoûté » par sa beauté et son talent.
+        </p>
+        <p>
+          Sur cette page, tu peux&nbsp;:
+        </p>
+        <ul style="margin-top:.6rem;margin-left:1rem;font-size:.9rem;color:var(--text-muted);line-height:1.7;">
+          <li>voir la vidéo euphorique de Brandy au début de l’histoire ;</li>
+          <li>lire le premier message de Roméo, présenté comme une interface de messagerie ;</li>
+          <li>suivre les extraits clés du tome 1 ;</li>
+          <li>regarder les vidéos‑témoignages de Samantha et Mia, puis l’alerte finale de Samantha.</li>
+        </ul>
+        <div class="hero-actions">
+          <button class="btn-primary" id="btn-scroll-text">
+            <span class="btn-primary-icon">↓</span>
+            Lire le chapitre
+          </button>
+          <a href="http://shadowlink.manus.space" target="_blank" rel="noopener" class="link-shadow">
+            <span>◎</span> Ouvrir le vrai ShadowLink
+          </a>
+          <p class="hero-note">
+            Parcours la vidéo d’ouverture, lis le message de Roméo, puis plonge dans le texte
+            pour comprendre ce qui s’est vraiment passé.
+          </p>
+        </div>
+      </div>
+
+      <!-- Mockup du message de Roméo, inspiré de ta capture -->
+      <aside class="shadowlink-panel reveal" style="transition-delay:180ms;">
+        <div class="shadowlink-header">
+          <div class="shadowlink-logo">
+            <span class="shadowlink-logo-mark"></span>
+            <span>Messages de Roméo Giulietta</span>
+          </div>
+          <div class="shadowlink-status">
+            <span class="shadowlink-status-dot"></span>
+            <span>Mars 2009 · En ligne</span>
+          </div>
+        </div>
+        <div class="shadowlink-title">Messages de Roméo Giulietta – Mars 2009</div>
+        <div class="shadowlink-sub">
+          La première prise de contact — comme si tu consultais la conversation complète.
+        </div>
+
+        <div class="shadowlink-feed">
+          <div class="rom-message-header">
+            <div class="rom-avatar">R</div>
+            <div class="rom-meta">
+              <div class="rom-name">Roméo G</div>
+              <div class="rom-status">En ligne</div>
+            </div>
+            <div class="rom-time">17:13</div>
+          </div>
+
+          <div class="rom-bubble">
+            Depuis des heures, je parcours vos vidéos, envoûté par votre beauté, subjugé par votre talent.
+            Je suis réalisateur, un artiste incompris peut‑être, mais je prépare mon premier long métrage.
+            Ma demande va vous surprendre, mais je suis on ne peut plus sérieux&nbsp;: je veux que vous soyez
+            mon personnage principal. Vous, uniquement vous. Je l’ai su dès la première seconde où j’ai
+            découvert votre vidéo.
+          </div>
+
+          <div class="rom-footer">
+            <div class="rom-location">
+              <span class="rom-pill">Localisation&nbsp;: Vancouver, Canada</span>
+              <span class="rom-pill">Profil cible&nbsp;: Modèle / Influenceuse</span>
+            </div>
+            <span style="font-size:.7rem;color:var(--text-muted);">Vu · 17:13</span>
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <!-- MAIN LAYOUT -->
+    <section class="layout-main">
+      <!-- TEXTE DU ROMAN -->
+      <article class="chapter-scroll reveal" id="chapter-scroll" style="transition-delay:140ms;">
+        <div class="chapter-scroll-header">
+          <div>
+            <div class="chapter-label">Texte intégral</div>
+            <div class="chapter-title">Tome 1 – Extraits clés</div>
+          </div>
+        </div>
+        <div class="chapter-progress-bar" aria-hidden="true">
+          <div class="chapter-progress" id="chapter-progress"></div>
+        </div>
+
+        <div class="chapter-body" id="chapter-body">
+          <!-- Tu peux coller ici ton texte complet. J’ai remis les premiers extraits. -->
+          <h2>Chapitre 1 · Amitiés virtuelles</h2>
+          <p>
+            Quatre amies, séparées par des océans, unies par un lien fragile mais indéfectible.
+            Mia, 21 ans, étudiante en sociologie à Paris ; Rachel, lycéenne de 17 ans à Tel‑Aviv ;
+            Samantha, en première année à la fac de langues de Melbourne ; et Brandy, 23 ans,
+            serveuse à Vancouver, en attendant que la musique et le cinéma l’emmènent plus loin.
+          </p>
+          <p>
+            Toutes partagent un mal‑être que peu comprennent&nbsp;: la boulimie, une douleur silencieuse.
+            Puis, un jour, l’impensable survint&nbsp;: Brandy disparut, ne donnant plus aucun signe de vie.
+          </p>
+          <p>Revenons quelques mois en arrière.</p>
+          <p class="time-stamp">6 janvier 2009</p>
+          <p>
+            Brandy, artiste en devenir, poste une vidéo sur Facebook puis sur
+            <span class="highlight-shadowlink">ShadowLink</span>, ce réseau social au design énigmatique,
+            très prisé des artistes underground. Sa chanson s’intitule <em>Amitiés virtuelles</em>, dédiée à ses trois amies.
+          </p>
+          <p>
+            Quelques heures plus tard, un commentaire attire son attention. Un certain Roméo, prétendu
+            réalisateur de films indépendants, écrit&nbsp;:
+          </p>
+          <p class="dialogue">
+            «&nbsp;Ma demande doit vous sembler étrange, mais je suis très sérieux.
+            Je cherche la muse de mon premier long métrage. Et je crois l’avoir trouvée&nbsp;: vous.&nbsp;»
+          </p>
+          <p>
+            Le cœur de Brandy s’emballe. Elle explore son profil : un homme vêtu de noir, masqué,
+            entouré de symboles occultes. Des clichés de jeunes filles fragiles, en noir et blanc,
+            presque mystiques.
+          </p>
+          <p>
+            Mais Roméo la rassure&nbsp;: tout cela, dit‑il, fait partie du casting de Lili, son héroïne.
+            Une petite voix en elle murmure que quelque chose cloche. Mais la promesse de gloire
+            et de reconnaissance éclipse toute prudence. Brandy ferme les yeux et avance.
+          </p>
+
+          <!-- Tu peux continuer ici avec le reste de ton texte (chapitres 1,2,3...) -->
+        </div>
+      </article>
+
+      <!-- COLONNE : VIDÉOS + FRISE -->
+      <aside class="side-column">
+        <!-- BLOC VIDÉOS IMMERSIVES -->
+        <section class="card reveal" style="transition-delay:160ms;">
+          <h3>Vidéos du chapitre</h3>
+          <p style="font-size:0.84rem;color:var(--text-muted);margin-bottom:.4rem;">
+            Ces quatre vidéos prolongent l’intrigue&nbsp;: réaction de Brandy, journal intime, témoignages
+            de Samantha &amp; Mia, puis message d’alerte de Samantha.
+          </p>
+
+          <div class="video-grid">
+            <!-- 1. Brandy euphorique (même fichier que l’intro, mais consultable ici aussi si tu veux) -->
+            <article class="video-card" data-video="brandy-euphorie">
+              <div class="video-thumb" aria-hidden="true"></div>
+              <div class="video-meta">
+                <div class="video-title">Brandy · « C’est ma chance ! »</div>
+                <div class="video-desc">
+                  Message vidéo de Brandy à Mia, Rachel et Samantha, juste après le message de Roméo.
+                </div>
+              </div>
+              <div class="video-player">
+                <video controls preload="metadata" poster="/assep/brandy-euphorie-poster.jpg">
+                  <source src="/assep/brandy-euphorie.mp4" type="video/mp4" />
+                  Votre navigateur ne supporte pas la vidéo.
+                </video>
+              </div>
+            </article>
+
+            <!-- 2. Journal intime / Vlog -->
+            <article class="video-card" data-video="brandy-vlog">
+              <div class="video-thumb" aria-hidden="true"></div>
+              <div class="video-meta">
+                <div class="video-title">Journal intime · Brandy</div>
+                <div class="video-desc">
+                  Vlog montage : quatre photos et quatre phrases pour suivre l’évolution de ses pensées,
+                  de l’euphorie au malaise.
+                </div>
+              </div>
+              <div class="video-player">
+                <video controls preload="metadata" poster="/assep/brandy-vlog-poster.jpg">
+                  <source src="/assep/brandy-vlog.mp4" type="video/mp4" />
+                  Votre navigateur ne supporte pas la vidéo.
+                </video>
+              </div>
+            </article>
+
+            <!-- 3. Témoignages de Samantha & Mia -->
+            <article class="video-card" data-video="temoignage-mia-samantha">
+              <div class="video-thumb" aria-hidden="true"></div>
+              <div class="video-meta">
+                <div class="video-title">Samantha &amp; Mia témoignent</div>
+                <div class="video-desc">
+                  Elles racontent comment Brandy a changé depuis que Roméo est entré dans sa vie.
+                </div>
+              </div>
+              <div class="video-player">
+                <video controls preload="metadata" poster="/assep/temoignage-mia-samantha-poster.jpg">
+                  <source src="/assep/temoignage-mia-samantha.mp4" type="video/mp4" />
+                  Votre navigateur ne supporte pas la vidéo.
+                </video>
+              </div>
+            </article>
+
+            <!-- 4. Samantha inquiète (24h sans nouvelles) -->
+            <article class="video-card" data-video="samantha-inquiete">
+              <div class="video-thumb" aria-hidden="true"></div>
+              <div class="video-meta">
+                <div class="video-title">Message d’alerte · Samantha</div>
+                <div class="video-desc">
+                  Plus de nouvelles de Brandy depuis 24h. Samantha envoie ce message à Mia et Rachel.
+                </div>
+              </div>
+              <div class="video-player">
+                <video controls preload="metadata" poster="/assep/samantha-inquiete-poster.jpg">
+                  <source src="/assep/samantha-inquiete.mp4" type="video/mp4" />
+                  Votre navigateur ne supporte pas la vidéo.
+                </video>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <!-- FRISE -->
+        <section class="card reveal" style="transition-delay:200ms;">
+          <h3>Frise des événements</h3>
+          <div class="timeline">
+            <div class="timeline-item">
+              <span class="timeline-dot"></span>
+              <strong>6 janv. 2009</strong>
+              Brandy poste <em>Amitiés virtuelles</em> sur Facebook et
+              <span class="highlight-shadowlink">ShadowLink</span>. Premier commentaire de Roméo.
+            </div>
+            <div class="timeline-item">
+              <span class="timeline-dot"></span>
+              <strong>Après le message</strong>
+              Brandy envoie une vidéo euphorique à ses amies : elle est convaincue que sa vie va changer.
+            </div>
+            <div class="timeline-item">
+              <span class="timeline-dot"></span>
+              <strong>Les semaines suivantes</strong>
+              Vlog intime, doutes, malaise. Samantha et Mia remarquent que Brandy n’est plus la même.
+            </div>
+            <div class="timeline-item">
+              <span class="timeline-dot"></span>
+              <strong>24h sans nouvelles</strong>
+              Samantha envoie un message vidéo affolé à Mia et Rachel. Puis le silence.
+            </div>
+          </div>
+          <div class="tag-row">
+            <span class="tag tag-accent">Boulimie</span>
+            <span class="tag">Amitiés virtuelles</span>
+            <span class="tag">Manipulation</span>
+            <span class="tag">True crime</span>
+          </div>
+        </section>
+      </aside>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="reveal" style="transition-delay:260ms;">
+      <div>Empty Mirror · Tome 1 — «&nbsp;Ceux qui regardent encore dans le miroir vide.&nbsp;»</div>
+      <div class="footer-right">
+        <span class="footer-pill">À venir · Tome 2 – Dylan : les origines du mal</span>
+      </div>
+    </footer>
+  </div>
+</main>
+
+<script>
+  // Révélations au scroll
+  const revealEls = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries)=>{
+    entries.forEach(entry=>{
+      if(entry.isIntersecting){
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  },{threshold:0.15});
+  revealEls.forEach(el=>observer.observe(el));
+
+  // Scroll vers le texte
+  const btnScroll=document.getElementById('btn-scroll-text');
+  if(btnScroll){
+    btnScroll.addEventListener('click',()=>{
+      const target=document.getElementById('chapter-scroll');
+      if(!target) return;
+      const top=target.getBoundingClientRect().top+window.scrollY-80;
+      window.scrollTo({top,behavior:'smooth'});
+    });
+  }
+
+  // Progression de lecture du chapitre
+  const chapterBody=document.getElementById('chapter-body');
+  const chapterProgress=document.getElementById('chapter-progress');
+  if(chapterBody && chapterProgress){
+    chapterBody.addEventListener('scroll',()=>{
+      const max=chapterBody.scrollHeight-chapterBody.clientHeight;
+      const ratio=max>0?chapterBody.scrollTop/max:0;
+      chapterProgress.style.width=`${ratio*100}%`;
+    });
+  }
+
+  // Petit effet "glow" global
+  const toggleGlow=document.getElementById('toggle-glow');
+  let glow=false;
+  if(toggleGlow){
+    toggleGlow.addEventListener('click',()=>{
+      glow=!glow;
+      document.body.style.filter=glow?'brightness(1.06) saturate(1.06)':'none';
+    });
+  }
+</script>
+</body>
+</html>
+ 
